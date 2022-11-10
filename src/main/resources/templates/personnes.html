@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Annuaire de personnes</h1>
+
+<p th:text="${ personnes.size() }"></p>
+
+<p th:if="${ personnes.size() == 0 }">L'annuaire est vide</p>
+
+<table th:if="${ personnes.size() > 0 }">
+    <tr th:each="p : ${ personnes }">
+        <td th:text="${ p.prenom }"></td>
+        <td th:text="${ p.nom }"></td>
+        <td th:text="${ p.age }"></td>
+    </tr>
+</table>
+
+<form action="newpersonne" method="POST">
+    <label>Prénom:</label><input type="text" name="prenom"/><br/>
+    <label>Nom:</label><input type="text" name="nom"/><br/>
+    <label>Age:</label><input type="number" name="age"/><br/>
+    <input type="submit" value="Ajouter">
+</form>
+
+</body>
+</html>
