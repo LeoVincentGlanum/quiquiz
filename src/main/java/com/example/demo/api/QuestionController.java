@@ -26,18 +26,21 @@ public class QuestionController {
     ReponseService reponseService;
 
     @GetMapping("questions")
+    @CrossOrigin(origins = "http://www.rdlp.xyz:3001")
     public List<Question> getQuestions(){
         return questionService.getQuestions();
     }
 
 
     @GetMapping("question/{id}")
+    @CrossOrigin(origins = "http://www.rdlp.xyz:3001")
     public Optional<Question> getQuestion(@PathVariable("id") int id){
         return questionService.getQuestion(id);
     }
 
 
     @GetMapping("reponses/{id}")
+    @CrossOrigin(origins = "http://www.rdlp.xyz:3001")
     public List<Reponse> getReponses(@PathVariable("id") Long id){
         return reponseService.getReponses(id);
     }
