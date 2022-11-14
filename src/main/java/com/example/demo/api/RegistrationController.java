@@ -15,7 +15,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin
+@CrossOrigin(origins = "http://www.rdlp.xyz:3001/")
 public class RegistrationController {
 
     @Autowired

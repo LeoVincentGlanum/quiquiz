@@ -2,7 +2,9 @@ package com.example.demo.service;
 
 
 import com.example.demo.model.Question;
+import com.example.demo.model.Reponse;
 import com.example.demo.repository.QuestionRepository;
+import com.example.demo.repository.ReponseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,7 @@ public class QuestionService {
 
 
     @Autowired private QuestionRepository questionRepository;
+    @Autowired private ReponseRepository reponseRepository;
 
     public List<Question> getQuestions(){
         return questionRepository.findAll();
@@ -22,5 +25,7 @@ public class QuestionService {
     public Optional<Question> getQuestion(Integer id){
         return questionRepository.findById(id);
     }
+
+
 
 }

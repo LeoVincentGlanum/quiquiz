@@ -25,4 +25,12 @@ public class ReponseService {
         return reponseRepository.findById(id);
     }
 
+    public List<Reponse> getReponses(Long id){
+        return reponseRepository.findByQuestion_Id(id);
+    }
+
+
+
+
+
 }
