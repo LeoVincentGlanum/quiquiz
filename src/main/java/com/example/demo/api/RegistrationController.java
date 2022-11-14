@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "*")
@@ -29,14 +31,14 @@ public class RegistrationController {
 
     @PostMapping("/user/registration")
     public String registerUserAccount(
-            @ModelAttribute("user") UserDTO userDTO,
+            @ModelAttribute("user") @Valid UserDTO userDTO,
             BindingResult result)
     {
 
         System.out.println("registerUserAccount(): " + userDTO);
 
         if (result.hasErrors()) {
-            return "registration";
+           return result.getAllErrors().toString();
         }
         else {
             User registered = userService.registerNewUserAccount(userDTO);
