@@ -1,5 +1,6 @@
 package com.example.demo.dto;
 
+import javax.persistence.Column;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -16,6 +17,8 @@ public class UserDTO {
     @NotEmpty(message = "password ne peut être vide.")
     @Size(min = 5, max = 250)
     private String password;
+
+    @Column(unique=true)
     @NotEmpty(message = "email ne peut être vide.")
     @Size(min = 5, max = 250)
     private String email;
