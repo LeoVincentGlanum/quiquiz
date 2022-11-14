@@ -15,14 +15,13 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://www.rdlp.xyz:3001")
+@CrossOrigin(origins = "*")
 public class RegistrationController {
 
     @Autowired
     UserService userService;
 
     @GetMapping("/user/registration")
-    @CrossOrigin(origins = "http://www.rdlp.xyz:3001")
     public String showRegistrationForm(Model model) {
 
         UserDTO userDto = new UserDTO();
@@ -31,7 +30,6 @@ public class RegistrationController {
     }
 
     @PostMapping("/user/registration")
-    @CrossOrigin(origins = "http://www.rdlp.xyz:3001")
     public String registerUserAccount(
             @ModelAttribute("user") @Valid UserDTO userDTO,
             BindingResult result)
@@ -49,7 +47,6 @@ public class RegistrationController {
     }
 
     @GetMapping("/account")
-    @CrossOrigin(origins = "http://www.rdlp.xyz:3001")
     public String showMyInformation(Model model) {
 
         /* Authentication : Who is doing the request ? */
