@@ -6,15 +6,12 @@ import javax.validation.constraints.Size;
 public class UserDTO {
 
     @NotEmpty(message = "username ne peut être vide.")
-    @Size(min = 5, max = 250)
     private String userName;
 
-    @NotEmpty(message = "firstName ne peut être vide.")
-    @Size(min = 5, max = 250)
+
     private String firstName;
 
-    @NotEmpty(message = "lastName ne peut être vide.")
-    @Size(min = 5, max = 250)
+
     private String lastName;
     @NotEmpty(message = "password ne peut être vide.")
     @Size(min = 5, max = 250)
