@@ -24,7 +24,11 @@
     <link href="css/styles.css" rel="stylesheet" />
     <base href="/">
 </head>
-
+<style>
+    section{
+        height: 100vh;
+    }
+</style>
 <body>
     <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
     <nav id="sidebar-wrapper" style="background-color:#ecb807">
@@ -44,7 +48,6 @@
                 <h2 class="mb-5">Veuillez remplir le formulaire</h2>
             </div>
             <div class="row gx-4 gx-lg-5">
-                <h1>Register</h1>
                 <form action="/user/registration" th:object="${user}" method="POST" enctype="utf8">
                     <div class="mb-3">
                         <label for="usernameInput" class="form-label">Pseudo : </label>
