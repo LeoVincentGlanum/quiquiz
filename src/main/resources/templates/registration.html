@@ -46,11 +46,19 @@
             <div class="row gx-4 gx-lg-5">
                 <h1>Register</h1>
                 <form action="/user/registration" th:object="${user}" method="POST" enctype="utf8">
-                    <div class="mb-3">
-                        <label for="usernameInput" class="form-label">Pseudo : </label> 
-                        <input id="usernameInput" class="form-control" th:field="*{userName}" />
-                        <p class="error-message" th:each="error: ${#fields.errors('userName')}" th:text="${error}"></p>
+                    <div class="row g-3 align-items-center">
+                    <div class="col-autp">
+                        <label for="usernameInput" class="form-label">Pseudo : </label>
+                        </div> 
+                    
+                        <div class="col-autp">
+                            <input id="usernameInput" class="form-control" th:field="*{userName}" />
+                            </div>
+                            <div class="col-autp">
+                            <p class="error-message" th:each="error: ${#fields.errors('userName')}" th:text="${error}"></p>
+                            </div>
                     </div>
+                </div>
                     <div class="mb-3">
                         <label for="firstnameInput" class="form-label">Prénom : </label> 
                         <input id="firstnameInput" class="form-control" th:field="*{firstName}" />
