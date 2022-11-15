@@ -56,7 +56,27 @@ public class AuthController {
 
         model.addAttribute("principal", authentication.getPrincipal());
         model.addAttribute("user", userService.getUser(authentication.getName()));
-
+        if (authentication.getName() == "anonymousUser"){
+            return "redirect:/login";
+        }
         return "account";
+    }
+
+
+    @GetMapping("/dashbord")
+    public String showDashbord(Model model) {
+
+        /* Authentication : Who is doing the request ? */
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println("Name: " + authentication.getName());
+        System.out.println("authentication: " + authentication);
+        System.out.println("principal: " + authentication.getPrincipal());
+
+        model.addAttribute("principal", authentication.getPrincipal());
+        model.addAttribute("user", userService.getUser(authentication.getName()));
+        if (authentication.getName() == "anonymousUser"){
+            return "redirect:/login";
+        }
+        return "dashbord";
     }
 }
