@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.Arrays;
+import java.util.List;
 
 
 @Controller
@@ -28,6 +30,10 @@ public class QuizzController {
     @Autowired
     private QuestionService questionService;
 
+
+
+
+
     @GetMapping("/quizz")
     public String showQuizz(Model model) {
 
@@ -38,12 +44,19 @@ public class QuizzController {
         UserDTO userDto = new UserDTO();
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         model.addAttribute("principal", authentication.getPrincipal());
+        List<Integer> palier = Arrays.asList(100,200,300,500,1000,2000,4000,6000,8000,12000,18000,30000,50000,100000,300000,1000000);
+        model.addAttribute("paliers", palier);
         model.addAttribute("user", userService.getUser(authentication.getName()));
         if (authentication.getName() == "anonymousUser"){
-            return "redirect:/login";
+            return "redirect:/connexion";
         }
         return "quizz";
     }
+
+
+
+
+
 //
 //    @PostMapping("/user/registration")
 //    public String registerUserAccount(

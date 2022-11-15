@@ -28,6 +28,7 @@ public class UserService {
         u.setFirstName(userDTO.getFirstName());
         u.setLastName(userDTO.getLastName());
         u.setEmail(userDTO.getEmail());
+        u.setPalier(0);
 
         return userRepository.save(u);
     }

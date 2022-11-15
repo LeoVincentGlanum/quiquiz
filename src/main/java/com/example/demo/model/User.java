@@ -1,5 +1,8 @@
 package com.example.demo.model;
 
+import net.bytebuddy.implementation.bind.annotation.Default;
+import org.springframework.boot.context.properties.bind.DefaultValue;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,6 +22,15 @@ public class User {
     private String lastName;
     private String email;
 
+    private Integer palier;
+
+    public Integer getPalier() {
+        return palier;
+    }
+
+    public void setPalier(Integer palier) {
+        this.palier = palier;
+    }
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "authority_id", referencedColumnName = "id")

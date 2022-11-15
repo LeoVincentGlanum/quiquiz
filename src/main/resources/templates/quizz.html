@@ -16,6 +16,22 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        footer.footer .social-link {
+            height: 81px;
+            line-height: 5.3rem;
+            width: 133px;
+        }
+        footer.footer{
+            padding-top: 0;
+        }
+
+        a.btn.btn-dark.btn-xl.w-100.mb-2:hover {
+            color: #000;
+            background-color: #ecb807;
+            border-color: #ecb807;
+        }
+    </style>
 </head>
 <body id="page-top">
 <!-- Navigation-->
@@ -45,8 +61,7 @@
                 <h2 th:text="${ question.getQuestion() }"></h2>
 
                 <div th:each="r : ${ question.getReponses() }">
-
-                    <a class="btn btn-dark btn-xl" th:text="${ r.reponse }" href="">What We Offer</a>
+                    <a class="btn btn-dark btn-xl w-100 mb-2" style="border-radius: 15px;" th:text="${ r.reponse }" href="">What We Offer</a>
                 </div>
 
             </div>
@@ -58,15 +73,19 @@
 <!-- Footer-->
 <footer class="footer text-center">
     <div class="container px-4 px-lg-5">
+        <h2>Vos paliers</h2>
         <ul class="list-inline mb-5">
-            <li class="list-inline-item">
-                <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-facebook"></i></a>
-            </li>
-            <li class="list-inline-item">
-                <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-twitter"></i></a>
-            </li>
-            <li class="list-inline-item">
-                <a class="social-link rounded-circle text-white" href="#!"><i class="icon-social-github"></i></a>
+
+            <li th:each="p : ${ paliers }" class="list-inline-item">
+                 <span th:if="${ paliers.indexOf(p) +1  <= user.getPalier() }">
+                    <a th:text="${ p }" style="background-color: #1d9f36;" class="social-link rounded-circle text-white mr-3" href="#!"></a>
+                </span>
+                <span th:if="${ paliers.indexOf(p)  == user.getPalier() }">
+                    <a th:text="${ p }" style="background-color: #d9ad26;" class="social-link rounded-circle text-white mr-3" href="#!"></a>
+                </span>
+                <span th:if="${ paliers.indexOf(p)  > user.getPalier() }">
+                    <a th:text="${ p }" class="social-link rounded-circle text-white mr-3" href="#!"></a>
+                </span>
             </li>
         </ul>
         <p class="text-muted small mb-0">Copyright &copy; Your Website 2022</p>

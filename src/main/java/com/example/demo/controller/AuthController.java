@@ -31,6 +31,13 @@ public class AuthController {
         return "registration";// template/registration.html
     }
 
+    @GetMapping("/connexion")
+    public String showConnexion(Model model) {
+        UserDTO userDto = new UserDTO();
+        model.addAttribute("user", userDto);
+        return "connexion";
+    };
+
     @PostMapping("/user/registration")
     public String registerUserAccount(
             @ModelAttribute("user") @Valid  UserDTO userDTO,
@@ -63,6 +70,22 @@ public class AuthController {
         }
     }
 
+
+    @GetMapping("/index")
+    public String redirectIndex(Model model){
+        return "index_without_auth";
+    }
+
+    @GetMapping("/")
+    public String redirectLogin(Model model){
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication.getName() == "anonymousUser"){
+            return "redirect:/index";
+        }
+        return "redirect:/dashbord";
+    }
+
     @GetMapping("/account")
     public String showMyInformation(Model model) {
 
@@ -75,7 +98,7 @@ public class AuthController {
         model.addAttribute("principal", authentication.getPrincipal());
         model.addAttribute("user", userService.getUser(authentication.getName()));
         if (authentication.getName() == "anonymousUser"){
-            return "redirect:/login";
+            return "redirect:/connexion";
         }
         return "account";
     }
@@ -93,7 +116,7 @@ public class AuthController {
         model.addAttribute("principal", authentication.getPrincipal());
         model.addAttribute("user", userService.getUser(authentication.getName()));
         if (authentication.getName() == "anonymousUser"){
-            return "redirect:/login";
+            return "redirect:/connexion";
         }
         return "dashbord";
     }
