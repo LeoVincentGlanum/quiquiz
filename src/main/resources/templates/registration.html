@@ -27,7 +27,7 @@
 
 <body>
     <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
-    <nav id="sidebar-wrapper">
+    <nav id="sidebar-wrapper" style="background-color:chartreuse">
         <ul class="sidebar-nav">
             <li class="sidebar-brand"><a href="#page-top">Start Bootstrap</a></li>
             <li class="sidebar-nav-item"><a href="#page-top">Home</a></li>
@@ -75,7 +75,7 @@
                         <p class="error-message" th:each="error : ${#fields.errors('password')}" th:text="${error}">
                         </p>
                     </div>
-                    <button class="btn btn-xl btn-dark" type="submit">Inscription</button>
+                    <button class="btn btn-xl btn-secondary" type="submit">Inscription</button>
                 </form>
 
                 <a href="/login">Déjà inscrit? Connexion</a>
