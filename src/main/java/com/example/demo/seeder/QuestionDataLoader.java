@@ -30,8 +30,6 @@ public class QuestionDataLoader implements CommandLineRunner {
             Reponse r3 = new Reponse(q1,"Epinards",true);
             Reponse r4 = new Reponse(q1,"Poches",false);
 
-            Question q2 = new Question("John", 1);
-
             questionRepository.save(q1);
 
             reponseRepository.save(r1);
@@ -39,7 +37,21 @@ public class QuestionDataLoader implements CommandLineRunner {
             reponseRepository.save(r3);
             reponseRepository.save(r4);
 
+            Question q2 = new Question("Lorsque quelqu'un écrit avec aisance, on dit qu'il a... ", 1);
 
+            questionRepository.save(q2);
+
+
+            Reponse r5 = new Reponse(q2,"La plume facile",true);
+            Reponse r6 = new Reponse(q2,"Le crayon léger",false);
+            Reponse r7 = new Reponse(q2,"Le stylo evident",false);
+            Reponse r8 = new Reponse(q2,"Le bic allègre",false);
+
+
+            reponseRepository.save(r5);
+            reponseRepository.save(r6);
+            reponseRepository.save(r7);
+            reponseRepository.save(r8);
 
         }
         System.out.println(questionRepository.count());

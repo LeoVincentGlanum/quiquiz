@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 @Service
 public class QuestionService {
@@ -26,6 +27,13 @@ public class QuestionService {
         return questionRepository.findById(id);
     }
 
+    public Question getRandomQuestion(){
 
+        List<Question> list =  questionRepository.findAll();
+        Random rand = new Random();
+        Question randomQuestion = list.get(rand.nextInt(list.size()));
+        return randomQuestion;
+
+    }
 
 }

@@ -18,6 +18,14 @@ public class Question {
     @JoinColumn(name="question_id")
     private List<Reponse> reponses = new ArrayList<>();
 
+    public List<Reponse> getReponses() {
+        return reponses;
+    }
+
+    public void setReponses(List<Reponse> reponses) {
+        this.reponses = reponses;
+    }
+
     private String question;
 
     private Integer level;

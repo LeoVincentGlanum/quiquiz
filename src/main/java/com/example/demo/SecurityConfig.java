@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 // The order of the rules matters and the more specific rules should go first.
                 // ne pas oublier le / devant les URLs
-                .antMatchers("/", "/index.html","/api/user/registration","/user/registration","/register").permitAll()
+                .antMatchers("/", "/index.html","/api/user/registration","/user/registration","/register","/login").permitAll()
                 .and().httpBasic()
                 .and().formLogin().defaultSuccessUrl("/dashbord")
                 .and().csrf().disable();
