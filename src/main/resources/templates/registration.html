@@ -47,38 +47,39 @@
                 <h1>Register</h1>
                 <form action="/user/registration" th:object="${user}" method="POST" enctype="utf8">
                     <div class="row g-3 align-items-center">
-                    <div class="col-autp">
-                        <label for="usernameInput" class="form-label">Pseudo : </label>
-                        </div> 
-                    
+                        <div class="col-autp">
+                            <label for="usernameInput" class="form-label">Pseudo : </label>
+                        </div>
+
                         <div class="col-autp">
                             <input id="usernameInput" class="form-control" th:field="*{userName}" />
-                            </div>
-                            <div class="col-autp">
-                            <p class="error-message" th:each="error: ${#fields.errors('userName')}" th:text="${error}"></p>
-                            </div>
+                        </div>
+                        <div class="col-autp">
+                            <p class="error-message" th:each="error: ${#fields.errors('userName')}" th:text="${error}">
+                            </p>
+                        </div>
                     </div>
-                </div>
+
                     <div class="mb-3">
-                        <label for="firstnameInput" class="form-label">Prénom : </label> 
+                        <label for="firstnameInput" class="form-label">Prénom : </label>
                         <input id="firstnameInput" class="form-control" th:field="*{firstName}" />
                         <p class="error-message" th:each="error: ${#fields.errors('firstName')}" th:text="${error}">
                         </p>
                     </div>
                     <div class="mb-3">
-                        <label for="lastnameInput" class="form-label">Nom : </label> 
+                        <label for="lastnameInput" class="form-label">Nom : </label>
                         <input id="lastnameInput" class="form-control" th:field="*{lastName}" />
                         <p class="error-message" th:each="error : ${#fields.errors('lastName')}" th:text="${error}">
                         </p>
                     </div>
                     <div class="mb-3">
-                        <label for="emailInput" class="form-label">Adresse email : </label> 
+                        <label for="emailInput" class="form-label">Adresse email : </label>
                         <input id="emailInput" class="form-control" type="email" th:field="*{email}" />
                         <p class="error-message" th:each="error : ${#fields.errors('email')}" th:text="${error}"></p>
 
                     </div>
                     <div class="mb-3">
-                        <label for="passwordInput" class="form-label">Mot de passe : </label> 
+                        <label for="passwordInput" class="form-label">Mot de passe : </label>
                         <input type="password" id="passwordInput" class="form-control" th:field="*{password}" />
                         <p class="error-message" th:each="error : ${#fields.errors('password')}" th:text="${error}">
                         </p>
