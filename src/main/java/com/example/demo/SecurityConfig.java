@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // ne pas oublier le / devant les URLs
                 .antMatchers("/", "/index.html","/api/user/registration","/user/registration","/register").permitAll()
                 .and().httpBasic()
-                .and().formLogin()
+                .and().formLogin().defaultSuccessUrl("/dashbord")
                 .and().csrf().disable();
     }
 

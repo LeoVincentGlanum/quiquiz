@@ -35,15 +35,28 @@ public class RegistrationController {
             BindingResult result)
     {
 
-        System.out.println("registerUserAccount(): " + userDTO);
+        System.out.println("registerUserAccount() aaaa : " + userDTO);
 
-        if (result.hasErrors()) {
-           return result.getAllErrors().toString();
+        System.out.println("coucou : !!! 😉 ");
+        System.out.println(userService.getUserByEmail(userDTO.getEmail()));
+
+
+
+
+        if (userService.getUserByEmail(userDTO.getEmail()) != null){
+            if (result.hasErrors()) {
+                return result.getAllErrors().toString();
+            }
+            else {
+                User registered = userService.registerNewUserAccount(userDTO);
+                System.out.println("coucou : !!! 😉 ");
+                return "registration-success";
+            }
+        } else {
+            return "login deja pris";
         }
-        else {
-            User registered = userService.registerNewUserAccount(userDTO);
-            return "registration-success";
-        }
+
+
     }
 
     @GetMapping("/account")
