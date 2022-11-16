@@ -9,7 +9,12 @@ public class Reponse {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
 
     @ManyToOne
     private Question question;

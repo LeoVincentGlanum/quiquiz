@@ -11,9 +11,27 @@ public class UserDTO {
     @NotEmpty(message = "username ne peut être vide.")
     private String userName;
 
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     private String firstName;
 
+    private Integer palier;
+
+    public Integer getPalier() {
+        return palier;
+    }
+
+    public void setPalier(Integer palier) {
+        this.palier = palier;
+    }
 
     private String lastName;
     @NotEmpty(message = "password ne peut être vide.")

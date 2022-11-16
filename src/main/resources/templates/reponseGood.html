@@ -15,7 +15,7 @@
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="/css/styles.css" rel="stylesheet" />
     <style>
         footer.footer .social-link {
             height: 81px;
@@ -61,7 +61,16 @@
                 <h2 th:text="${ question.getQuestion() }"></h2>
 
                 <div th:each="r : ${ question.getReponses() }">
-                    <a class="btn btn-dark btn-xl w-100 mb-2" th:href="${ '/quizz/reponse/' + r.getId()}" style="border-radius: 15px;" th:text="${ r.reponse }" href="">What We Offer</a>
+
+                    <a  th:if="${ (r.getId() == reponseUser.getId()) && (reponseUser.getGood())}" class="btn btn-success btn-xl w-100 mb-2"  style="border-radius: 15px;" th:text="${ r.reponse }">What We Offer</a>
+
+                    <a  th:if="${ r.getId() != reponseUser.getId() && (r.getGood() == false) }" class="btn btn-dark btn-xl w-100 mb-2"  style="border-radius: 15px;" th:text="${ r.reponse }"></a>
+
+                    <a  th:if="${ r.getId() == reponseUser.getId() && (reponseUser.getGood() == false ) }" class="btn btn-danger btn-xl w-100 mb-2"  style="border-radius: 15px;" th:text="${ r.reponse }" ></a>
+
+                    <a  th:if="${ r.getId() != reponseUser.getId() && (r.getGood()) }" class="btn btn-secondary btn-xl w-100 mb-2"  style="border-radius: 15px;" th:text="${ r.reponse }"></a>
+
+
                 </div>
 
             </div>
@@ -73,21 +82,22 @@
 <!-- Footer-->
 <footer class="footer text-center">
     <div class="container px-4 px-lg-5">
-        <h2>Vos paliers</h2>
+        <h2>Bonne réponse ! Vous valider le palier </h2>
         <ul class="list-inline mb-5">
 
-            <li th:each="p : ${ paliers }" class="list-inline-item">
-                 <span th:if="${ paliers.indexOf(p) +1  <= user.getPalier() }">
-                    <a th:text="${ p }" style="background-color: #1d9f36;" class="social-link rounded-circle text-white mr-3" href="#!"></a>
-                </span>
-                <span th:if="${ paliers.indexOf(p)  == user.getPalier() }">
-                    <a th:text="${ p }" style="background-color: #d9ad26;" class="social-link rounded-circle text-white mr-3" href="#!"></a>
-                </span>
-                <span th:if="${ paliers.indexOf(p)  > user.getPalier() }">
-                    <a th:text="${ p }" class="social-link rounded-circle text-white mr-3" href="#!"></a>
-                </span>
+            <li class="list-inline-item">
+
+                <a th:text="${ paliers.get(user.getPalier() -1) }" style="background-color: #1d9f36;" class="social-link rounded-circle text-white mr-3" href="#!"></a>
+
+                <!--                <span th:if="${ paliers.indexOf(p)  == user.getPalier() }">-->
+                <!--                    <a th:text="${ p }" style="background-color: #d9ad26;" class="social-link rounded-circle text-white mr-3" href="#!"></a>-->
+                <!--                </span>-->
+                <!--                <span th:if="${ paliers.indexOf(p)  > user.getPalier() }">-->
+                <!--                    <a th:text="${ p }" class="social-link rounded-circle text-white mr-3" href="#!"></a>-->
+                <!--                </span>-->
             </li>
         </ul>
+        <a class="btn btn-primary" href="/quizz" >Question suivante</a>
         <p class="text-muted small mb-0">Copyright &copy; Your Website 2022</p>
     </div>
 </footer>
@@ -96,6 +106,6 @@
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
-<script src="js/scripts.js"></script>
+<script src="/js/scripts.js"></script>
 </body>
 </html>

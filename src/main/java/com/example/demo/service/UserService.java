@@ -33,6 +33,25 @@ public class UserService {
         return userRepository.save(u);
     }
 
+
+
+    public User updateUser(UserDTO userDTO) {
+
+        User u = new User();
+        u.setId(userDTO.getId());
+        u.setEnabled(1);
+        u.setUsername(userDTO.getUserName());
+        u.setRole("ROLE_USER");
+        u.setPassword(userDTO.getPassword());
+        u.setFirstName(userDTO.getFirstName());
+        u.setLastName(userDTO.getLastName());
+        u.setEmail(userDTO.getEmail());
+        u.setPalier(userDTO.getPalier());
+
+        return userRepository.save(u);
+    }
+
+
     public User getUserByEmail(String email){
         return userRepository.findByEmail(email);
     }
