@@ -60,6 +60,7 @@
 
 
 
+
     .myButton {
         box-shadow: 0px 0px 7px 0px #f2be21;
         background: linear-gradient(to bottom, #f0d37d 5%, #f2be21 100%);
@@ -77,6 +78,27 @@
         margin: 20px;
         width: 40vw;
     }
+
+    @media screen and (max-width: 900px) {
+        .myButton {
+            box-shadow: 0px 0px 7px 0px #f2be21;
+            background: linear-gradient(to bottom, #f0d37d 5%, #f2be21 100%);
+            background-color: #f0d37d;
+            border-radius: 16px;
+            border: 1px solid #f2be21;
+            display: inline-block;
+            cursor: pointer;
+            color: #000000;
+            font-family: Arial;
+            font-size: 19px;
+            padding: 14px 31px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #634f13;
+            margin: 20px;
+            width: 70vw;
+        }
+    }
+
 
     .myButton:hover {
         background: linear-gradient(to bottom, #f2be21 5%, #f0d37d 100%);
@@ -97,8 +119,8 @@
     <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
     <nav id="sidebar-wrapper" style="background-color:#ecb807">
         <ul class="sidebar-nav">
-            <li class="sidebar-brand"><a href="/">QuiQuiz</a></li>
-            <li class="sidebar-nav-item"><a href="/user/registration">Inscription</a></li>
+            <li class="sidebar-brand"><a href="/" style="font-size: 3.2rem;">QuiQuiz</a></li>
+            <li class="sidebar-nav-item"><a style="font-size: 3.2rem;" href="/user/registration">Inscription</a></li>
         </ul>
     </nav>
     <section class="content-section bg-primary text-white text-center" id="services">

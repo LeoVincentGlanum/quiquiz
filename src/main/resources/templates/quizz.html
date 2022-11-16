@@ -37,6 +37,7 @@
         .cagnotte :hover{
             background-color: none;
         }
+
     </style>
 </head>
 <body id="page-top">
@@ -82,13 +83,13 @@
 
             <li th:each="p : ${ paliers }" class="list-inline-item">
                  <span th:if="${ paliers.indexOf(p) +1  <= user.getPalier() }">
-                    <a th:text="${ p }" style="background-color: #1d9f36;" class="cagnotte social-link rounded-circle text-white mr-3" href="#!"></a>
+                    <a style="background-color: #1d9f36;" class="cagnotte social-link rounded-circle text-white mr-3" href="#!"><span th:text="${ p }"></span><img src="/assets/img/poussin.png" style="width: 31px;"></a>
                 </span>
                 <span th:if="${ paliers.indexOf(p)  == user.getPalier() }">
-                    <a th:text="${ p }" style="background-color: #d9ad26;" class="cagnotte social-link rounded-circle text-white mr-3" href="#!"></a>
+                    <a style="background-color: #d9ad26;" class="cagnotte social-link rounded-circle text-white mr-3" href="#!"><span th:text="${ p }"></span><img src="/assets/img/poussin.png" style="width: 31px;"></a>
                 </span>
                 <span th:if="${ paliers.indexOf(p)  > user.getPalier() }">
-                    <a class="cagnotte social-link rounded-circle text-white mr-3" href="#!"><span th:text="${ p }"></span><img src="/assets/img/poussin.png"></a>
+                    <a class="cagnotte social-link rounded-circle text-white mr-3" href="#!"><span th:text="${ p }"></span><img src="/assets/img/poussin.png" style="width: 31px;"></a>
                 </span>
             </li>
         </ul>
