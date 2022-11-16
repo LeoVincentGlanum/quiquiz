@@ -59,6 +59,17 @@
     .sidebar-brand{
         font-size: 1.2rem;
     }
+
+    .form-label {
+        font-size: 25px;
+    }
+
+    .form-control{
+        height: auto;
+        font-size: 2rem;
+        border-radius: 1.25rem;
+        line-height: 2;
+    }
 </style>
 
 <body>
@@ -78,7 +89,7 @@
             <div class="row gx-4 gx-lg-5">
                 <form action="/user/registration" th:object="${user}" method="POST" enctype="utf8">
                     <div class="mb-3">
-                        <label for="usernameInput" class="form-label">Pseudo : </label>
+                        <label for="usernameInput" class="form-label">Pseudo * : </label>
 
                         <input id="usernameInput" class="form-control" th:field="*{userName}" />
                         <p class="error-message" th:each="error: ${#fields.errors('userName')}" th:text="${error}">
@@ -98,7 +109,7 @@
                         </p>
                     </div>
                     <div class="mb-3">
-                        <label for="emailInput" class="form-label">Adresse email : </label>
+                        <label for="emailInput" class="form-label">Adresse email * : </label>
                         <input id="emailInput" class="form-control" type="email" th:field="*{email}" />
                         <p class="error-message" th:each="error : ${#fields.errors('email')}" th:text="${error}"></p>
 
