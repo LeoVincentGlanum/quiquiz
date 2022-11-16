@@ -31,6 +31,9 @@
             background-color: #ecb807;
             border-color: #ecb807;
         }
+        .cagnotte{
+            cursor: default;
+        }
     </style>
 </head>
 <body id="page-top">
@@ -76,13 +79,13 @@
 
             <li th:each="p : ${ paliers }" class="list-inline-item">
                  <span th:if="${ paliers.indexOf(p) +1  <= user.getPalier() }">
-                    <a th:text="${ p }" style="background-color: #1d9f36;" class="social-link rounded-circle text-white mr-3" href="#!"></a>
+                    <a th:text="${ p }" style="background-color: #1d9f36;" class="cagnotte social-link rounded-circle text-white mr-3" href="#!"></a>
                 </span>
                 <span th:if="${ paliers.indexOf(p)  == user.getPalier() }">
-                    <a th:text="${ p }" style="background-color: #d9ad26;" class="social-link rounded-circle text-white mr-3" href="#!"></a>
+                    <a th:text="${ p }" style="background-color: #d9ad26;" class="cagnotte social-link rounded-circle text-white mr-3" href="#!"></a>
                 </span>
                 <span th:if="${ paliers.indexOf(p)  > user.getPalier() }">
-                    <a th:text="${ p }" class="social-link rounded-circle text-white mr-3" href="#!"></a>
+                    <a th:text="${ p }" class="cagnotte social-link rounded-circle text-white mr-3" href="#!"></a>
                 </span>
             </li>
         </ul>
