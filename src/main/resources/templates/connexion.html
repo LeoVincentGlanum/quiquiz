@@ -41,23 +41,22 @@
     .btn{
         font-size: 14px;
     }
+    input{
+        font-size:14px;
+    }
 </style>
 <body>
 <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
 <nav id="sidebar-wrapper" style="background-color:#ecb807">
     <ul class="sidebar-nav">
-        <li class="sidebar-brand"><a href="#page-top">Start Bootstrap</a></li>
-        <li class="sidebar-nav-item"><a href="#page-top">Home</a></li>
-        <li class="sidebar-nav-item"><a href="#about">About</a></li>
-        <li class="sidebar-nav-item"><a href="#services">Services</a></li>
-        <li class="sidebar-nav-item"><a href="#portfolio">Portfolio</a></li>
-        <li class="sidebar-nav-item"><a href="#contact">Contact</a></li>
+        <li class="sidebar-brand"><a href="/">QuiQuiz</a></li>
+        <li class="sidebar-nav-item"><a href="/user/registration">Inscription</a></li>
     </ul>
 </nav>
 <section class="content-section bg-primary text-white text-center" id="services">
     <div class="container px-4 px-lg-5">
         <div class="content-section-heading">
-            <h1 class="text-secondary mb-0">Inscription</h1>
+            <h1 class="text-secondary mb-0">Connexion</h1>
             <h2 class="mb-5">Veuillez remplir le formulaire</h2>
         </div>
         <div class="row gx-4 gx-lg-5">
@@ -75,10 +74,10 @@
                     <p class="error-message" th:each="error : ${#fields.errors('password')}" th:text="${error}">
                     </p>
                 </div>
-                <button class="btn btn-xl btn-secondary" type="submit">Inscription</button>
+                <button class="btn btn-xl btn-secondary" type="submit">Connexion</button>
             </form>
 
-            <a href="/login"><button class="btn btn-xl btn-secondary">Déjà inscrit? Connexion</button></a>
+            <a href="/user/registration"><button class="btn btn-xl btn-secondary">Pas de compte? Inscription</button></a>
 </section>
 </body>
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
