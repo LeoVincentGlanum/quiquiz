@@ -31,6 +31,16 @@
             background-color: #ecb807;
             border-color: #ecb807;
         }
+
+
+        @media screen and (max-width: 800px) {
+            .suivant{
+                padding: 18px;
+                width: 77vw;
+            }
+        }
+
+
     </style>
 </head>
 <body id="page-top">
@@ -81,11 +91,11 @@
 <footer class="footer text-center">
     <div class="container px-4 px-lg-5">
         <h2>Bonne réponse ! Vous valider le palier </h2>
-        <ul class="list-inline mb-5">
+        <ul class="list-inline mb-1">
 
             <li class="list-inline-item">
 
-                <a th:text="${ paliers.get(user.getPalier() -1) }" style="background-color: #1d9f36;" class="social-link rounded-circle text-white mr-3" href="#!"></a>
+                <a th:text="${ paliers.get(user.getPalier() -1) }" style="background-color: #1d9f36;" class="social-link rounded-circle mb-2 text-white mr-3" href="#!"></a>
 
                 <!--                <span th:if="${ paliers.indexOf(p)  == user.getPalier() }">-->
                 <!--                    <a th:text="${ p }" style="background-color: #d9ad26;" class="social-link rounded-circle text-white mr-3" href="#!"></a>-->
@@ -95,8 +105,8 @@
                 <!--                </span>-->
             </li>
         </ul>
-        <a class="btn btn-primary" href="/quizz" >Question suivante</a>
-        <p class="text-muted small mb-0">Copyright &copy; Your Website 2022</p>
+        <a class="btn btn-primary suivant" href="/quizz" >Question suivante</a>
+        <p class="text-muted small mt-3 mb-0">Copyright &copy; Quiquiz 2022</p>
     </div>
 </footer>
 <!-- Scroll to Top Button-->

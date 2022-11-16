@@ -86,7 +86,13 @@ public class AuthController {
 
     @GetMapping("/index")
     public String redirectIndex(Model model){
-        return "index_without_auth";
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication.getName() == "anonymousUser"){
+            return "index_without_auth";
+        }
+        return "redirect:/dashbord";
+
     }
 
     @GetMapping("/")

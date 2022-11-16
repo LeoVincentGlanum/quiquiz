@@ -71,6 +71,25 @@ public class QuizzController {
             final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             User user = userService.getUser(authentication.getName());
             Integer temponPalier = user.getPalier();
+
+
+            if (temponPalier >= 16){
+
+                userDto.setId(user.getId());
+                userDto.setUserName(user.getUsername());
+                userDto.setLastName(user.getLastName());
+                userDto.setRole(user.getRole());
+                userDto.setFirstName(user.getFirstName());
+                userDto.setPassword(user.getPassword());
+                userDto.setEmail(user.getEmail());
+                userDto.setPalier(0);
+                userService.updateUser(userDto);
+
+
+                return "win";
+
+            }
+
             userDto.setId(user.getId());
             userDto.setUserName(user.getUsername());
             userDto.setLastName(user.getLastName());
