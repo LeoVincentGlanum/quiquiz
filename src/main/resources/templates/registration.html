@@ -25,10 +25,37 @@
     <base href="/">
 </head>
 <style>
-    section{
+    section {
         height: 100vh;
     }
+
+    .myButton {
+        box-shadow: 0px 0px 7px 0px #f2be21;
+        background: linear-gradient(to bottom, #f0d37d 5%, #f2be21 100%);
+        background-color: #f0d37d;
+        border-radius: 16px;
+        border: 1px solid #f2be21;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 19px;
+        padding: 14px 31px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #634f13;
+    }
+
+    .myButton:hover {
+        background: linear-gradient(to bottom, #f2be21 5%, #f0d37d 100%);
+        background-color: #f2be21;
+    }
+
+    .myButton:active {
+        position: relative;
+        top: 1px;
+    }
 </style>
+
 <body>
     <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
     <nav id="sidebar-wrapper" style="background-color:#ecb807">
@@ -77,10 +104,10 @@
                         <p class="error-message" th:each="error : ${#fields.errors('password')}" th:text="${error}">
                         </p>
                     </div>
-                    <button class="btn btn-xl btn-secondary" type="submit">Inscription</button>
+                    <button class="btn btn-xl btn-secondary myButton" type="submit">Inscription</button>
                 </form>
 
-                <a href="/connexion"><button class="btn btn-xl btn-secondary">Déjà inscrit? Connexion</button></a>
+                <a href="/connexion"><button class="btn btn-xl btn-secondary myButton">Déjà inscrit? Connexion</button></a>
     </section>
 </body>
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>

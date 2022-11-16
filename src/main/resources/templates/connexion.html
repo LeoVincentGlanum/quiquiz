@@ -13,73 +13,113 @@
 
     <!-- Simple line icons-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
-          rel="stylesheet" />
+        rel="stylesheet" />
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
-          rel="stylesheet" type="text/css" />
+        rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet" />
     <base href="/">
 </head>
 <style>
-    section{
+    section {
         height: 100vh;
     }
-    h2{
+
+    h1 {
+        font-weight: 700;
+    }
+
+    h2 {
         font-weight: 500;
         line-height: 1.1;
         font-family: inherit;
     }
-    body{
-        font-family:"Helvetica Neue",Hevetica,Arial, sans-serif;
+
+    body {
+        font-family: "Helvetica Neue", Hevetica, Arial, sans-serif;
         font-size: 14px;
         line-height: 1.42;
     }
-    .btn{
+
+    .btn {
         font-size: 14px;
         padding-bottom: 20px;
+        box-shadow: 11px 11px 20px -12px rgba(0, 0, 0, 0.92);
+        -webkit-box-shadow: 11px 11px 20px -12px rgba(0, 0, 0, 0.92);
+        -moz-box-shadow: 11px 11px 20px -12px rgba(0, 0, 0, 0.92);
     }
-    input{
-        font-size:14px;
+
+    .myButton {
+        box-shadow: 0px 0px 7px 0px #f2be21;
+        background: linear-gradient(to bottom, #f0d37d 5%, #f2be21 100%);
+        background-color: #f0d37d;
+        border-radius: 16px;
+        border: 1px solid #f2be21;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 19px;
+        padding: 14px 31px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #634f13;
+    }
+
+    .myButton:hover {
+        background: linear-gradient(to bottom, #f2be21 5%, #f0d37d 100%);
+        background-color: #f2be21;
+    }
+
+    .myButton:active {
+        position: relative;
+        top: 1px;
+    }
+
+    input {
+        font-size: 14px;
     }
 </style>
+
 <body>
-<a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
-<nav id="sidebar-wrapper" style="background-color:#ecb807">
-    <ul class="sidebar-nav">
-        <li class="sidebar-brand"><a href="/">QuiQuiz</a></li>
-        <li class="sidebar-nav-item"><a href="/user/registration">Inscription</a></li>
-    </ul>
-</nav>
-<section class="content-section bg-primary text-white text-center" id="services">
-    <div class="container px-4 px-lg-5">
-        <div class="content-section-heading">
-            <h1 class="text-secondary mb-0">Connexion</h1>
-            <h2 class="mb-5">Veuillez remplir le formulaire</h2>
-        </div>
-        <div class="row gx-4 gx-lg-5">
-            <form action="/login" th:object="${user}" method="POST">
-                <div class="mb-3">
-                    <label for="username" class="form-label">Pseudo : </label>
+    <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
+    <nav id="sidebar-wrapper" style="background-color:#ecb807">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand"><a href="/">QuiQuiz</a></li>
+            <li class="sidebar-nav-item"><a href="/user/registration">Inscription</a></li>
+        </ul>
+    </nav>
+    <section class="content-section bg-primary text-white text-center" id="services">
+        <div class="container px-4 px-lg-5">
+            <div class="content-section-heading">
+                <h1 class="text-secondary mb-0">Connexion</h1>
+                <h2 class="mb-5">Veuillez remplir le formulaire</h2>
+            </div>
+            <div class="row gx-4 gx-lg-5">
+                <form action="/login" th:object="${user}" method="POST">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Pseudo : </label>
 
-                    <input id="username" class="form-control"   name="username"/>
-                    <p class="error-message" th:each="error: ${#fields.errors('userName')}" th:text="${error}">
-                    </p>
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Mot de passe : </label>
-                    <input type="password" id="password" class="form-control" th:field="*{password}" name="password" />
-                    <p class="error-message" th:each="error : ${#fields.errors('password')}" th:text="${error}">
-                    </p>
-                </div>
-                <button class="btn btn-xl btn-secondary" type="submit">Connexion</button>
-            </form>
+                        <input id="username" class="form-control" name="username" />
+                        <p class="error-message" th:each="error: ${#fields.errors('userName')}" th:text="${error}">
+                        </p>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Mot de passe : </label>
+                        <input type="password" id="password" class="form-control" th:field="*{password}"
+                            name="password" />
+                        <p class="error-message" th:each="error : ${#fields.errors('password')}" th:text="${error}">
+                        </p>
+                    </div>
+                    <button class="btn btn-xl btn-secondary myButton" type="submit">Connexion</button>
+                </form>
 
-            <a href="/user/registration"><button class="btn btn-xl btn-secondary">Pas de compte? Inscription</button></a>
-</section>
+                <a href="/user/registration"><button class="btn btn-xl btn-secondary myButton">Pas de compte?
+                        Inscription</button></a>
+    </section>
 </body>
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 <script src="/js/scripts.js"></script>
