@@ -1,7 +1,14 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.QuestionDTO;
 import com.example.demo.dto.UserDTO;
+import com.example.demo.model.Question;
+import com.example.demo.model.Reponse;
 import com.example.demo.model.User;
+import com.example.demo.repository.QuestionRepository;
+import com.example.demo.repository.ReponseRepository;
+import com.example.demo.service.QuestionService;
+import com.example.demo.service.ReponseService;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -22,6 +29,12 @@ public class AuthController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    QuestionRepository questionRepository;
+
+    @Autowired
+    ReponseRepository reponseRepository;
 
     @GetMapping("/user/registration")
     public String showRegistrationForm(Model model) {
@@ -120,4 +133,77 @@ public class AuthController {
         }
         return "dashbord";
     }
+
+
+    @GetMapping("/admin")
+    public String showAdmin(Model model) {
+
+        /* Authentication : Who is doing the request ? */
+        final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println("Name: " + authentication.getName());
+        System.out.println("authentication: " + authentication);
+        System.out.println("principal: " + authentication.getPrincipal());
+        User user = userService.getUser(authentication.getName());
+        model.addAttribute("principal", authentication.getPrincipal());
+        model.addAttribute("user", userService.getUser(authentication.getName()));
+
+        model.addAttribute("question", new QuestionDTO());
+        if (authentication.getName() == "anonymousUser"){
+            return "redirect:/connexion";
+        }
+        if (user.getRole().equals("ROLE_ADMIN")){
+
+
+
+            return "admin";
+        } else {
+            System.out.println(user.getRole());
+            return "redirect:/dashbord";
+        }
+
+    }
+
+    @PostMapping("/admin/createQuestion")
+    public String createQuestion(String question,String reponse1,String reponse2,String reponse3, String reponse4,String flexRadioDefault){
+        System.out.println("❤❤❤");
+        System.out.println(question);
+
+        System.out.println(flexRadioDefault);
+
+        Boolean good1 = false;
+        Boolean good2 = false;
+        Boolean good3 = false;
+        Boolean good4 = false;
+
+        if (flexRadioDefault.equals("reponse1")){
+            good1 = true;
+        }
+        if (flexRadioDefault.equals("reponse2")){
+            good2 = true;
+        }
+        if (flexRadioDefault.equals("reponse3")){
+            good3 = true;
+        }
+        if (flexRadioDefault.equals("reponse4")){
+            good4 = true;
+        }
+
+        Question q1 = new Question(question, 1);
+
+        questionRepository.save(q1);
+
+        Reponse r1 = new Reponse(q1,reponse1,good1);
+        Reponse r2 = new Reponse(q1,reponse2,good2);
+        Reponse r3 = new Reponse(q1,reponse3,good3);
+        Reponse r4 = new Reponse(q1,reponse4,good4);
+
+        reponseRepository.save(r1);
+        reponseRepository.save(r2);
+        reponseRepository.save(r3);
+        reponseRepository.save(r4);
+
+
+        return "admin_success";
+    }
+
 }

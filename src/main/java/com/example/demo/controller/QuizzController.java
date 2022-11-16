@@ -74,6 +74,7 @@ public class QuizzController {
             userDto.setId(user.getId());
             userDto.setUserName(user.getUsername());
             userDto.setLastName(user.getLastName());
+            userDto.setRole(user.getRole());
             userDto.setFirstName(user.getFirstName());
             userDto.setPassword(user.getPassword());
             userDto.setEmail(user.getEmail());

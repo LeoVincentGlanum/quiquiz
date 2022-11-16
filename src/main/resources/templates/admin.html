@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Stylish Portfolio - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+
+    <!-- Simple line icons-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css"
+          rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+          rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="/css/styles.css" rel="stylesheet" />
+    <base href="/">
+</head>
+<style>
+    section{
+        height: 100vh;
+    }
+</style>
+<body>
+<a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
+<nav id="sidebar-wrapper" style="background-color:#ecb807">
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand"><a href="#page-top">Start Bootstrap</a></li>
+        <li class="sidebar-nav-item"><a href="#page-top">Home</a></li>
+        <li class="sidebar-nav-item"><a href="#about">About</a></li>
+        <li class="sidebar-nav-item"><a href="#services">Services</a></li>
+        <li class="sidebar-nav-item"><a href="#portfolio">Portfolio</a></li>
+        <li class="sidebar-nav-item"><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+<section class="content-section bg-primary text-white text-center" id="services">
+    <div class="container px-4 px-lg-5">
+        <div class="content-section-heading">
+            <h1 class="text-secondary mb-0">ADMIN </h1>
+            <h2 class="mb-5">Ajouter une nouvelle question</h2>
+        </div>
+        <div class="row gx-4 gx-lg-5">
+            <form action="/admin/createQuestion" method="POST" enctype="utf8">
+                <div class="mb-3">
+                    <label for="usernameInput" class="form-label">Question : </label>
+
+                    <input id="usernameInput" class="form-control" name="question" />
+
+                    </p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="reponse1" class="form-label">Reponse 1 : </label>
+                    <input id="reponse1" class="form-control" name="reponse1"/>
+
+                    </p>
+                </div>
+                <div class="form-check">
+                    <input class="" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="reponse1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Reponse 1 juste
+                    </label>
+                </div>
+
+
+
+                <div class="mb-3">
+                    <label for="reponse2" class="form-label">Reponse 2 : </label>
+                    <input id="reponse2" class="form-control" name="reponse2" />
+                    </p>
+                </div>
+
+                <div class="form-check">
+                    <input class="" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="reponse2">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Reponse 2 juste
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <label for="reponse3" class="form-label">Reponse 3 : </label>
+                    <input id="reponse3" class="form-control" name="reponse3" />
+                    </p>
+                </div>
+
+                <div class="form-check">
+                    <input class="" type="radio" name="flexRadioDefault" id="flexRadioDefault3" value="repons3">
+                    <label class="form-check-label" for="flexRadioDefault3">
+                        Reponse 3 juste
+                    </label>
+                </div>
+
+                <div class="mb-3">
+                    <label for="reponse4" class="form-label">Reponse 4 : </label>
+                    <input id="reponse4" class="form-control" name="reponse4" />
+                    </p>
+                </div>
+
+
+                <div class="form-check">
+                    <input class="" type="radio" name="flexRadioDefault" id="flexRadioDefault4" value="reponse4">
+                    <label class="form-check-label" for="flexRadioDefault4">
+                        Reponse 4 juste
+                    </label>
+                </div>
+
+
+                <button class="btn btn-xl btn-secondary" type="submit">Inscription</button>
+            </form>
+
+            <a href="/login"><button class="btn btn-xl btn-secondary">Déjà inscrit? Connexion</button></a>
+</section>
+</body>
+<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+<script src="/js/scripts.js"></script>
+
+</html>

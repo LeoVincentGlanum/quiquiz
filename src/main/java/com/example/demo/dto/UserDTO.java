@@ -23,6 +23,16 @@ public class UserDTO {
 
     private String firstName;
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    private String role;
+
     private Integer palier;
 
     public Integer getPalier() {
