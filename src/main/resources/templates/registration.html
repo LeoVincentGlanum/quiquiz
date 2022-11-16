@@ -21,24 +21,52 @@
     <link href="/css/styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="/css/styles.css" rel="stylesheet" />
     <base href="/">
 </head>
 <style>
-    section{
+    section {
         height: 100vh;
+        background: #fff url(../../assets/img/bgconnexion.jpg) center center/cover no-repeat;
+    }
+
+    .myButton {
+        box-shadow: 0px 0px 7px 0px #f2be21;
+        background: linear-gradient(to bottom, #f0d37d 5%, #f2be21 100%);
+        background-color: #f0d37d;
+        border-radius: 16px;
+        border: 1px solid #f2be21;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 19px;
+        padding: 14px 31px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #634f13;
+        margin: 20px;
+    }
+
+    .myButton:hover {
+        background: linear-gradient(to bottom, #f2be21 5%, #f0d37d 100%);
+        background-color: #f2be21;
+    }
+
+    .myButton:active {
+        position: relative;
+        top: 1px;
+    }
+    .sidebar-brand{
+        font-size: 1.2rem;
     }
 </style>
+
 <body>
     <a class="menu-toggle rounded" href="#"><i class="fas fa-bars"></i></a>
     <nav id="sidebar-wrapper" style="background-color:#ecb807">
         <ul class="sidebar-nav">
-            <li class="sidebar-brand"><a href="#page-top">Start Bootstrap</a></li>
-            <li class="sidebar-nav-item"><a href="#page-top">Home</a></li>
-            <li class="sidebar-nav-item"><a href="#about">About</a></li>
-            <li class="sidebar-nav-item"><a href="#services">Services</a></li>
-            <li class="sidebar-nav-item"><a href="#portfolio">Portfolio</a></li>
-            <li class="sidebar-nav-item"><a href="#contact">Contact</a></li>
+            <li class="sidebar-brand"><a href="/">Quiquiz</a></li>
+            <li class="sidebar-nav-item"><a href="/connexion">Connexion</a></li>
         </ul>
     </nav>
     <section class="content-section bg-primary text-white text-center" id="services">
@@ -81,10 +109,10 @@
                         <p class="error-message" th:each="error : ${#fields.errors('password')}" th:text="${error}">
                         </p>
                     </div>
-                    <button class="btn btn-xl btn-secondary" type="submit">Inscription</button>
+                    <button class="btn btn-xl btn-secondary myButton" type="submit">Inscription</button>
                 </form>
 
-                <a href="/login"><button class="btn btn-xl btn-secondary">Déjà inscrit? Connexion</button></a>
+                <a href="/connexion"><button class="btn btn-xl btn-secondary myButton">Déjà inscrit? Connexion</button></a>
     </section>
 </body>
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
